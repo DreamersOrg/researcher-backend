@@ -1,9 +1,14 @@
-**Resercher-Backend -**  
-This is a backend of a fully customizable survey spawning app with flavor of SpringBoot, MVC and Angular.
----
-Those who are facing remembering shortcuts for -intellij, don't get deprived there is a workaround for the same:  ..* Goto File>Settings  ..* In search bar type keymap  ..* In right hand side from the Keymaps drop down select Eclipse..
+**Resercher-Backend -**
   
-Voila pretty neat eh!
+This is a backend of a fully customizable survey spawning app with flavor of Spring Boot, MVC, Hibernate and Angular.
+
+---
+Those who are facing remembering shortcuts for -intellij, don't get deprived there is a workaround for the same:  
+* Goto File>Settings 
+* In search bar type keymap 
+* At right hand side from the Keymaps drop down select Eclipse.
+  
+***Voila pretty neat eh!***
 
 To sync your forked repo with main repo follow below steps:  
 ```
