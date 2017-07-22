@@ -1,10 +1,10 @@
-CREATE DATABASE  IF NOT EXISTS `survey` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `survey`;
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `researcher` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `researcher`;
+-- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
--- Host: localhost    Database: survey
+-- Host: 127.0.0.1    Database: researcher
 -- ------------------------------------------------------
--- Server version	5.7.18-log
+-- Server version	5.6.34-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -31,20 +31,11 @@ CREATE TABLE `admin_users` (
   `password` varchar(1024) NOT NULL,
   `mobile` int(10) NOT NULL,
   `DOB` date NOT NULL,
-  `create_date` datetime DEFAULT NULL,
-  `modify_date` datetime DEFAULT NULL,
+  `created_date` datetime NOT NULL,
+  `modified_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `admin_users`
---
-
-LOCK TABLES `admin_users` WRITE;
-/*!40000 ALTER TABLE `admin_users` DISABLE KEYS */;
-/*!40000 ALTER TABLE `admin_users` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `answers`
@@ -54,26 +45,17 @@ DROP TABLE IF EXISTS `answers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `answers` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `participant_id` bigint(20) NOT NULL,
   `question_id` bigint(20) NOT NULL,
   `answer_text` varchar(5000) DEFAULT NULL,
-  `create_date` datetime NOT NULL,
+  `created_date` datetime NOT NULL,
   `created_by` bigint(20) NOT NULL,
-  `modify_date` datetime NOT NULL,
+  `modified_date` datetime NOT NULL,
   `modified_by` bigint(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `answers`
---
-
-LOCK TABLES `answers` WRITE;
-/*!40000 ALTER TABLE `answers` DISABLE KEYS */;
-/*!40000 ALTER TABLE `answers` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `participant`
@@ -92,108 +74,72 @@ CREATE TABLE `participant` (
   `sex` char(1) DEFAULT NULL,
   `occupation` varchar(45) DEFAULT NULL,
   `participantcol` varchar(45) DEFAULT NULL,
-  `create_date` datetime NOT NULL,
+  `created_date` datetime NOT NULL,
   `created_by` bigint(20) NOT NULL,
-  `modify_date` datetime NOT NULL,
+  `modified_date` datetime NOT NULL,
   `modified_by` bigint(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `participant`
+-- Table structure for table `questions`
 --
 
-LOCK TABLES `participant` WRITE;
-/*!40000 ALTER TABLE `participant` DISABLE KEYS */;
-/*!40000 ALTER TABLE `participant` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `question`
---
-
-DROP TABLE IF EXISTS `question`;
+DROP TABLE IF EXISTS `questions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `question` (
-  `id` bigint(20) NOT NULL,
+CREATE TABLE `questions` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `servey_id` bigint(20) NOT NULL,
   `question_text` varchar(1024) NOT NULL,
-  `create_date` datetime NOT NULL,
+  `created_date` datetime NOT NULL,
   `created_by` bigint(20) NOT NULL,
-  `modify_date` datetime NOT NULL,
+  `modified_date` datetime NOT NULL,
   `modified_by` bigint(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `question`
+-- Table structure for table `questions_metadata`
 --
 
-LOCK TABLES `question` WRITE;
-/*!40000 ALTER TABLE `question` DISABLE KEYS */;
-/*!40000 ALTER TABLE `question` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `question_metadata`
---
-
-DROP TABLE IF EXISTS `question_metadata`;
+DROP TABLE IF EXISTS `questions_metadata`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `question_metadata` (
-  `question_id` bigint(20) NOT NULL,
+CREATE TABLE `questions_metadata` (
+  `question_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `type` varchar(45) NOT NULL,
   `values` varchar(1024) DEFAULT NULL,
   `multiplechoice` binary(1) DEFAULT NULL,
-  `create_date` datetime NOT NULL,
+  `created_date` datetime NOT NULL,
   `created_by` bigint(20) NOT NULL,
-  `modify_date` datetime NOT NULL,
+  `modified_date` datetime NOT NULL,
   `modified_by` bigint(20) NOT NULL,
   PRIMARY KEY (`question_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `question_metadata`
+-- Table structure for table `researcher`
 --
 
-LOCK TABLES `question_metadata` WRITE;
-/*!40000 ALTER TABLE `question_metadata` DISABLE KEYS */;
-/*!40000 ALTER TABLE `question_metadata` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `survey`
---
-
-DROP TABLE IF EXISTS `survey`;
+DROP TABLE IF EXISTS `researcher`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `survey` (
+CREATE TABLE `researcher` (
   `servey_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `purpose` varchar(50) NOT NULL,
   `conducted_by` varchar(50) NOT NULL,
-  `create_date` datetime NOT NULL,
+  `created_date` datetime NOT NULL,
   `created_by` bigint(20) NOT NULL,
-  `modify_date` datetime NOT NULL,
+  `modified_date` datetime NOT NULL,
   `modified_by` bigint(20) NOT NULL,
   PRIMARY KEY (`servey_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `survey`
---
-
-LOCK TABLES `survey` WRITE;
-/*!40000 ALTER TABLE `survey` DISABLE KEYS */;
-/*!40000 ALTER TABLE `survey` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -204,4 +150,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-16 19:59:57
+-- Dump completed on 2017-07-22 19:41:12
