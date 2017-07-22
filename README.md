@@ -17,6 +17,7 @@ In your local clone of your forked repository, you can add the original GitHub r
 # Add the remote, call it "upstream":
 
 git remote add upstream https://github.com/whoever/whatever.git
+In our case it will be git remote add upstream https://github.com/DreamersOrg/researcher-backend.git
 
 # Fetch all the branches of that remote into remote-tracking branches,
 # such as upstream/master:
