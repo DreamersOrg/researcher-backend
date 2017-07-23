@@ -31,8 +31,8 @@ public class Answers {
   @Column(name = "created_by")
   private int createdBy;
 
-  @Column(name = "modify_date")
-  private Date modifyDate;
+  @Column(name = "modified_date")
+  private Date modifiedDate;
 
   @Column(name = "modified_by")
   private int modifiedBy;
@@ -53,6 +53,13 @@ public class Answers {
     this.participantId = participantId;
   }
 
+  public int getQuestionId() {
+    return questionId;
+  }
+
+  public void setQuestionId(int questionId) {
+    this.questionId = questionId;
+  }
 
   public String getAnswerText() {
     return answerText;
@@ -78,27 +85,19 @@ public class Answers {
     this.createdBy = createdBy;
   }
 
+  public Date getModifiedDate() {
+    return modifiedDate;
+  }
+
+  public void setModifiedDate(Date modifiedDate) {
+    this.modifiedDate = modifiedDate;
+  }
+
   public int getModifiedBy() {
     return modifiedBy;
   }
 
   public void setModifiedBy(int modifiedBy) {
     this.modifiedBy = modifiedBy;
-  }
-
-  public Date getModifyDate() {
-    return modifyDate;
-  }
-
-  public void setModifyDate(Date modifyDate) {
-    this.modifyDate = modifyDate;
-  }
-
-  public int getQuestionId() {
-    return questionId;
-  }
-
-  public void setQuestionId(int questionId) {
-    this.questionId = questionId;
   }
 }
