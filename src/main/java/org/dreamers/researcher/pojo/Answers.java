@@ -13,7 +13,7 @@ import java.util.Date;
 public class Answers {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "id")
+  @Column(name = "id", nullable=false)
   private int id;
 
   @Column(name = "participant_id")
