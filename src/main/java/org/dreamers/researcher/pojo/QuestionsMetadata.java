@@ -10,7 +10,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name= "questions_metadata")
-public class QuestionsMetadata {
+public class QuestionsMetadata implements IPojo{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

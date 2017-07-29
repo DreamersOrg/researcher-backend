@@ -10,7 +10,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "answers")
-public class Answers {
+public class Answers implements IPojo {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable=false)
