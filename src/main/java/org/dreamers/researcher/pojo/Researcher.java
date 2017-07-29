@@ -8,7 +8,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "resarcher")
-public class Researcher {
+public class Researcher implements IPojo{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
