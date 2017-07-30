@@ -25,6 +25,7 @@ public class Answers implements IPojo {
   @Embedded
   private ModificationMetadata modificationMetadata;
 
+  public Answers(){}
   public int getId() {
     return id;
   }

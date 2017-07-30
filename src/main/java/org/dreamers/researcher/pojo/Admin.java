@@ -30,10 +30,12 @@ public class Admin implements IPojo {
     @Column(name = "DOB")
     private Date dateOfBirth;
 
-    @Column(name = "created_date")
+    @Temporal(TemporalType.DATE)
+    @Column(name = "created_date", updatable = false)
     private Date createdDate;
 
-    @Column(name = "modified_date")
+    @Temporal(TemporalType.DATE)
+    @Column(name = "modified_date", updatable = false)
     private Date modifiedDate;
 
     public Admin(){}

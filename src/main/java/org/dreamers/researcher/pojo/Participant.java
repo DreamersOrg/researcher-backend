@@ -35,11 +35,10 @@ public class Participant implements IPojo{
     @Column(name = "occupation")
     private String occupation;
 
-    @Column(name = "participantcol")
-    private String participantcol;
-
     @Embedded
     private ModificationMetadata modificationMetadata;
+
+    public Participant(){}
 
     public int getId() {
         return id;
@@ -103,14 +102,6 @@ public class Participant implements IPojo{
 
     public void setOccupation(String occupation) {
         this.occupation = occupation;
-    }
-
-    public String getParticipantcol() {
-        return participantcol;
-    }
-
-    public void setParticipantcol(String participantcol) {
-        this.participantcol = participantcol;
     }
 
     public ModificationMetadata getModificationMetadata() {

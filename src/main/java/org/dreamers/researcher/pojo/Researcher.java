@@ -26,6 +26,8 @@ public class Researcher implements IPojo{
     @Embedded
     private ModificationMetadata modificationMetadata;
 
+    public Researcher(){}
+
     public int getServeyId() {
         return surveyId;
     }

@@ -23,6 +23,8 @@ public class Questions implements IPojo{
     @Embedded
     private ModificationMetadata modificationMetadata;
 
+    public Questions(){}
+
     public int getId() {
         return id;
     }

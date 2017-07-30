@@ -2,6 +2,8 @@ package org.dreamers.researcher.pojo;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
 
 /**
@@ -9,12 +11,15 @@ import java.util.Date;
  */
 @Embeddable
 public class ModificationMetadata {
-    @Column(name = "created_date")
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "created_date", updatable = false)
     private Date createDate;
 
-    @Column(name = "created_by")
+    @Column(name = "created_by", updatable = false)
     private int createdBy;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "modified_date")
     private Date modifiedDate;
 

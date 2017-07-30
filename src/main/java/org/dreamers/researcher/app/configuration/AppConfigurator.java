@@ -11,7 +11,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 /**
  * Created by Yaseen on 7/29/2017.
  */
-@Import({AppConfiguration.class})
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "org.dreamers.researcher")

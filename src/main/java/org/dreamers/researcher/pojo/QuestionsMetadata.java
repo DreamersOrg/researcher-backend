@@ -26,6 +26,8 @@ public class QuestionsMetadata implements IPojo{
     @Embedded
     private ModificationMetadata modificationMetadata;
 
+    public QuestionsMetadata(){}
+
     public int getQuestionId() {
         return questionId;
     }
