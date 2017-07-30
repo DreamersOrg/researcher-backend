@@ -1,9 +1,6 @@
 package org.dreamers.researcher.pojo;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by KumuD on 7/23/2017.
@@ -26,17 +23,10 @@ public class QuestionsMetadata implements IPojo{
     @Column(name = "multiplechoice")
     private boolean multipleChoice;
 
-    @Column(name = "create_date")
-    private Date createTime;
+    @Embedded
+    private ModificationMetadata modificationMetadata;
 
-    @Column(name = "created_by")
-    private int createdBy;
-
-    @Column(name = "modified_date")
-    private Date modifiedDate;
-
-    @Column(name = "modified_by")
-    private int modifiedBy;
+    public QuestionsMetadata(){}
 
     public int getQuestionId() {
         return questionId;
@@ -70,35 +60,7 @@ public class QuestionsMetadata implements IPojo{
         this.multipleChoice = multipleChoice;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public int getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(int createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public Date getModifiedDate() {
-        return modifiedDate;
-    }
-
-    public void setModifiedDate(Date modifiedDate) {
-        this.modifiedDate = modifiedDate;
-    }
-
-    public int getModifiedBy() {
-        return modifiedBy;
-    }
-
-    public void setModifiedBy(int modifiedBy) {
-        this.modifiedBy = modifiedBy;
+    public void setModificationMetadata(ModificationMetadata modificationMetadata) {
+        this.modificationMetadata = modificationMetadata;
     }
 }

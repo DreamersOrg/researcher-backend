@@ -1,7 +1,6 @@
 package org.dreamers.researcher.pojo;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by KumuD on 7/23/2017.
@@ -15,23 +14,16 @@ public class Questions implements IPojo{
     @Column(name="id", nullable=false)
     private int id;
 
-    @Column(name="servey_id")
-    private int serveyId;
+    @Column(name="survey_id")
+    private int surveyId;
 
     @Column(name = "question_text")
     private String questionText;
 
-    @Column(name = "create_date")
-    private Date createTime;
+    @Embedded
+    private ModificationMetadata modificationMetadata;
 
-    @Column(name = "created_by")
-    private int createdBy;
-
-    @Column(name = "modified_date")
-    private Date modifiedDate;
-
-    @Column(name = "modified_by")
-    private int modifiedBy;
+    public Questions(){}
 
     public int getId() {
         return id;
@@ -41,12 +33,12 @@ public class Questions implements IPojo{
         this.id = id;
     }
 
-    public int getServeyId() {
-        return serveyId;
+    public int getsurveyId() {
+        return surveyId;
     }
 
-    public void setServeyId(int serveyId) {
-        this.serveyId = serveyId;
+    public void setsurveyId(int surveyId) {
+        this.surveyId = surveyId;
     }
 
     public String getQuestionText() {
@@ -57,35 +49,7 @@ public class Questions implements IPojo{
         this.questionText = questionText;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public int getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(int createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public Date getModifiedDate() {
-        return modifiedDate;
-    }
-
-    public void setModifiedDate(Date modifiedDate) {
-        this.modifiedDate = modifiedDate;
-    }
-
-    public int getModifiedBy() {
-        return modifiedBy;
-    }
-
-    public void setModifiedBy(int modifiedBy) {
-        this.modifiedBy = modifiedBy;
+    public void setModificationMetadata(ModificationMetadata modificationMetadata) {
+        this.modificationMetadata = modificationMetadata;
     }
 }
