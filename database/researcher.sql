@@ -73,7 +73,6 @@ CREATE TABLE `participant` (
   `age` int(11) DEFAULT NULL,
   `sex` char(1) DEFAULT NULL,
   `occupation` varchar(45) DEFAULT NULL,
-  `participantcol` varchar(45) DEFAULT NULL,
   `created_date` datetime NOT NULL,
   `created_by` bigint(20) NOT NULL,
   `modified_date` datetime NOT NULL,
