@@ -20,7 +20,8 @@ public class AbstractDAO<T extends Serializable> {
         this.clazz = clazzToSet;
     }
 
-    public T getById(long id) {
+    public T getById(int id) {
+
         return (T) this.getCurrentSession().get(this.clazz, id);
     }
 
@@ -40,7 +41,7 @@ public class AbstractDAO<T extends Serializable> {
         this.getCurrentSession().delete(entity);
     }
 
-    public void deleteById(long entityId) {
+    public void deleteById(int entityId) {
         T entity = this.getById(entityId);
         this.delete(entity);
     }

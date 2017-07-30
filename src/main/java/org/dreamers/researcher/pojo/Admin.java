@@ -25,16 +25,18 @@ public class Admin implements IPojo {
     private String password;
 
     @Column(name = "mobile")
-    private int mobileNo;
+    private String mobileNo;
 
     @Column(name = "DOB")
     private Date dateOfBirth;
 
-    @Column(name = "create_date")
-    private Date createTime;
+    @Column(name = "created_date")
+    private Date createdDate;
 
     @Column(name = "modified_date")
     private Date modifiedDate;
+
+    public Admin(){}
 
     public int getId() {
         return id;
@@ -68,11 +70,11 @@ public class Admin implements IPojo {
         this.password = password;
     }
 
-    public int getMobileNo() {
+    public String getMobileNo() {
         return mobileNo;
     }
 
-    public void setMobileNo(int mobileNo) {
+    public void setMobileNo(String mobileNo) {
         this.mobileNo = mobileNo;
     }
 
@@ -84,12 +86,12 @@ public class Admin implements IPojo {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
     public Date getModifiedDate() {

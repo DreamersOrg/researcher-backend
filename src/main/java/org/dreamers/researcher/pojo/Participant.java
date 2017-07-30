@@ -1,7 +1,6 @@
 package org.dreamers.researcher.pojo;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by KumuD on 7/23/2017.
@@ -39,17 +38,8 @@ public class Participant implements IPojo{
     @Column(name = "participantcol")
     private String participantcol;
 
-    @Column(name = "create_date")
-    private Date createTime;
-
-    @Column(name = "created_by")
-    private int createdBy;
-
-    @Column(name = "modified_date")
-    private Date modifiedDate;
-
-    @Column(name = "modified_by")
-    private int modifiedBy;
+    @Embedded
+    private ModificationMetadata modificationMetadata;
 
     public int getId() {
         return id;
@@ -123,35 +113,11 @@ public class Participant implements IPojo{
         this.participantcol = participantcol;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public ModificationMetadata getModificationMetadata() {
+        return modificationMetadata;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public int getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(int createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public Date getModifiedDate() {
-        return modifiedDate;
-    }
-
-    public void setModifiedDate(Date modifiedDate) {
-        this.modifiedDate = modifiedDate;
-    }
-
-    public int getModifiedBy() {
-        return modifiedBy;
-    }
-
-    public void setModifiedBy(int modifiedBy) {
-        this.modifiedBy = modifiedBy;
+    public void setModificationMetadata(ModificationMetadata modificationMetadata) {
+        this.modificationMetadata = modificationMetadata;
     }
 }
