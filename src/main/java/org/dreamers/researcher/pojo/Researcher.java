@@ -1,7 +1,6 @@
 package org.dreamers.researcher.pojo;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by KumuD on 7/23/2017.
@@ -12,8 +11,8 @@ public class Researcher implements IPojo{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "servey_id", nullable = false)
-    private int serveyId;
+    @Column(name = "survey_id", nullable = false)
+    private int surveyId;
 
     @Column(name = "name")
     private String name;
@@ -24,24 +23,15 @@ public class Researcher implements IPojo{
     @Column(name = "conducted_by")
     private String conductedBy;
 
-    @Column(name = "create_date")
-    private Date createTime;
-
-    @Column(name = "created_by")
-    private int createdBy;
-
-    @Column(name = "modified_date")
-    private Date modifiedDate;
-
-    @Column(name = "modified_by")
-    private int modifiedBy;
+    @Embedded
+    private ModificationMetadata modificationMetadata;
 
     public int getServeyId() {
-        return serveyId;
+        return surveyId;
     }
 
     public void setServeyId(int serveyId) {
-        this.serveyId = serveyId;
+        this.surveyId = serveyId;
     }
 
     public String getName() {
@@ -68,35 +58,7 @@ public class Researcher implements IPojo{
         this.conductedBy = conductedBy;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public int getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(int createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public Date getModifiedDate() {
-        return modifiedDate;
-    }
-
-    public void setModifiedDate(Date modifiedDate) {
-        this.modifiedDate = modifiedDate;
-    }
-
-    public int getModifiedBy() {
-        return modifiedBy;
-    }
-
-    public void setModifiedBy(int modifiedBy) {
-        this.modifiedBy = modifiedBy;
+    public void setModificationMetadata(ModificationMetadata modificationMetadata) {
+        this.modificationMetadata = modificationMetadata;
     }
 }
