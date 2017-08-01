@@ -1,6 +1,6 @@
 **Resercher-Backend -**
   
-This is a backend of a fully customizable survey spawning app with flavor of Spring Boot, MVC, Hibernate and Angular.
+This is a backend of a fully customizable survey spawning app with flavor of Spring MVC, Hibernate and Angular.
 
 ---
 Those who are facing remembering shortcuts for -intellij, don't get deprived there is a workaround for the same:  
